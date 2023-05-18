@@ -13,11 +13,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform groundCheck;
     [SerializeField] private LayerMask groundLayer;
 
+    //animation
+    private Animator animator;
+
     // Update is called once per frame
     void Update()
     {
         //returns -1, 0 or 1 depending on movement direction
         horizontal = Input.GetAxisRaw("Horizontal");
+        animator = GetComponent<Animator>();
+
+        if (rb.velocity.x == 0f)
+        {
+            //if player is not moving set animation to idle
+            animator.SetBool("Movement", false);
+        }
+        else
+        {
+            //if player is moving set animation to walking
+            animator.SetBool("Movement", true);
+        }
            
         //allow player to jump if they are touching the ground
         if (Input.GetButtonDown("Jump") && isGrounded())
