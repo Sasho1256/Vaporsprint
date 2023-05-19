@@ -6,13 +6,12 @@ public class MoveVisualizer : MonoBehaviour
 {
     public Transform player;
 
-    public int x;
-    public int y;
-    public int z;
+    //public float y;
+    //public float z;
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = new Vector3(player.transform.position.x, 0, 0);
+        transform.position = new Vector3(player.transform.position.x, transform.position.y, transform.position.z);
     }
 }
