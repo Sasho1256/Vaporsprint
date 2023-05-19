@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
 
         //if button is released and player is still moving upwards reduce velocity by 50%
