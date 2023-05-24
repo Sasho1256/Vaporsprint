@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
-{   
+{
+    public static bool gameOver = false;
+
+    void Start()
+    {
+        gameOver = false;
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Test");
-
-        // Destroy AudioManager instance
-        if (AudioManager.instance != null)
-            Destroy(AudioManager.instance.gameObject);
-
-        SceneManager.LoadScene("GameOver");
+        Debug.Log("Collision");
+        gameOver = true;
     }
 }
