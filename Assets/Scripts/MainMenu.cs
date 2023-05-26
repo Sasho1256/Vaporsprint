@@ -4,18 +4,35 @@ using System.Collections;
 
 public class MainMenu : MonoBehaviour
 {
-    public AudioSource myAudioSource;
+    private AudioManager audioManager;
+    private void Awake()
+    {
+        audioManager = AudioManager.instance;
+    }
 
     public void Play()
     {
         StartCoroutine(LoadScene());
     }
 
+    public void Settings()
+    {
+        StartCoroutine(LoadSceneByName("OptionsMenu"));
+    }
+
     private IEnumerator LoadScene()
     {
-        myAudioSource.Play();
-        while (myAudioSource.isPlaying)
+        audioManager.Play("Confirmation");
+        while (audioManager.getAudioSource("Confirmation").isPlaying)
             yield return null;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private IEnumerator LoadSceneByName(string name)
+    {
+        audioManager.Play("Confirmation");
+        while (audioManager.getAudioSource("Confirmation").isPlaying)
+            yield return null;
+        SceneManager.LoadScene(name);
     }
 }

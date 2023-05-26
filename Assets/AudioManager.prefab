@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &435510772307233124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 435510772307233130}
+  - component: {fileID: 435510772307233131}
+  - component: {fileID: 3029424550021756195}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &435510772307233130
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435510772307233124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &435510772307233131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435510772307233124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dec3b1b6703347340814614262ead889, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MainMenuTheme
+    clip: {fileID: 8300000, guid: 0a375d4453efd0e44a16630563b76ae1, type: 3}
+    volume: 0.293
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Confirmation
+    clip: {fileID: 8300000, guid: 012149e2f39995f4f8a369e8f8e2dbe2, type: 3}
+    volume: 0.25
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: Theme
+    clip: {fileID: 8300000, guid: afa18527d9fc4d745b544086e628e248, type: 3}
+    volume: 0.043
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+  - name: Jump
+    clip: {fileID: 8300000, guid: d09ce9721074ad0488d9e462c5c67970, type: 3}
+    volume: 0.112
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
+  - name: GameOverTheme
+    clip: {fileID: 8300000, guid: 6fd459207314f9740aa49a9c128b0a64, type: 3}
+    volume: 0.072
+    pitch: 1
+    source: {fileID: 0}
+    loop: 1
+--- !u!114 &3029424550021756195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 435510772307233124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3bc7a6feaddca641ab4a8bd92192c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

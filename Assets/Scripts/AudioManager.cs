@@ -1,6 +1,8 @@
 using UnityEngine.Audio;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class AudioManager : MonoBehaviour
 {
@@ -41,9 +43,40 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    void Start() {
-        Play("Theme");
+    public AudioSource getAudioSource(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return null;
+        }
+        return s.source;
     }
 
+    public void StopPlaying(string sound)
+    {
+        Sound s = Array.Find(sounds, item => item.name == sound);
+        if (s == null)
+        {
+            Debug.LogWarning("Sound: " + name + " not found!");
+            return;
+        }
 
+        s.source.Stop();
+    }
+
+    public void StopAll()
+    {
+        foreach(Sound s in sounds)
+        {
+            if (s == null)
+            {
+                Debug.LogWarning("Sound: " + name + " not found!");
+                return;
+            }
+
+            s.source.Stop();
+        }
+    }
 }
