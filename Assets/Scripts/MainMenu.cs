@@ -11,11 +11,24 @@ public class MainMenu : MonoBehaviour
         StartCoroutine(LoadScene());
     }
 
+    public void Settings()
+    {
+        StartCoroutine(LoadSceneByName("OptionsMenu"));
+    }
+
     private IEnumerator LoadScene()
     {
         myAudioSource.Play();
         while (myAudioSource.isPlaying)
             yield return null;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    private IEnumerator LoadSceneByName(string name)
+    {
+        myAudioSource.Play();
+        while (myAudioSource.isPlaying)
+            yield return null;
+        SceneManager.LoadScene(name);
     }
 }
