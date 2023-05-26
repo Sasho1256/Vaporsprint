@@ -59,7 +59,7 @@ MonoBehaviour:
     source: {fileID: 0}
     loop: 0
   - name: Theme
-    clip: {fileID: 8300000, guid: ceb51c85ae3526245a6c7bfc66b87ac0, type: 3}
+    clip: {fileID: 8300000, guid: afa18527d9fc4d745b544086e628e248, type: 3}
     volume: 0.043
     pitch: 1
     source: {fileID: 0}
@@ -72,7 +72,7 @@ MonoBehaviour:
     loop: 0
   - name: GameOverTheme
     clip: {fileID: 8300000, guid: 6fd459207314f9740aa49a9c128b0a64, type: 3}
-    volume: 0.112
+    volume: 0.072
     pitch: 1
     source: {fileID: 0}
     loop: 1

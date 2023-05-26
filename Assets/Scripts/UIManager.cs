@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         audioManager = AudioManager.instance;
+        blackOutSquare = FindObjectOfType<Image>();
     }
     void Update()
     {

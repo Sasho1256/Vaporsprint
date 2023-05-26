@@ -9,6 +9,7 @@ public class GameHandler : MonoBehaviour
 
     [HideInInspector]
     public AudioManager audioManager;
+
     // Start is called before the first frame update
 
     private void Awake()
@@ -18,7 +19,7 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         Debug.Log("GameHandler Started");
-        if (!audioManager.getAudioSource(themeSoundName).isPlaying)
+        if(audioManager.getAudioSource(themeSoundName) == null || !audioManager.getAudioSource(themeSoundName).isPlaying)
         {
             audioManager.StopAll();
             audioManager.Play(themeSoundName);

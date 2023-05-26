@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 52450fdeeaf54cd48b679b3098770063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bias: 1
+  bias: 2.25
   timeStep: 0.15
   timeToBeat: 0.05
   restSmoothTime: 2
@@ -657,6 +657,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 435510772307233131, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: sounds.Array.data[2].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: ceb51c85ae3526245a6c7bfc66b87ac0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
 --- !u!20 &788743968 stripped
