@@ -4,7 +4,12 @@ using System.Collections;
 
 public class OptionsMenu : MonoBehaviour
 {
-    public AudioSource myAudioSource;
+    private AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = AudioManager.instance;
+    }
 
     public void MusicUpload()
     {
@@ -18,8 +23,8 @@ public class OptionsMenu : MonoBehaviour
 
     private IEnumerator LoadSceneByName(string name)
     {
-        myAudioSource.Play();
-        while (myAudioSource.isPlaying)
+        audioManager.Play("Confirmation");
+        while (audioManager.getAudioSource("Confirmation").isPlaying)
             yield return null;
         SceneManager.LoadScene(name);
     }

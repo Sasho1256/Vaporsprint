@@ -7,6 +7,12 @@ public class UIManager : MonoBehaviour
 {
     public Image blackOutSquare;
 
+    private AudioManager audioManager;
+
+    private void Start()
+    {
+        audioManager = AudioManager.instance;
+    }
     void Update()
     {
         if (GameOver.gameOver == true)
@@ -19,11 +25,6 @@ public class UIManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
 
-        // Destroy AudioManager instance
-        if (AudioManager.instance != null)
-        {
-            Destroy(AudioManager.instance.gameObject);
-        }
 
         SceneManager.LoadScene("GameOver");
     }
