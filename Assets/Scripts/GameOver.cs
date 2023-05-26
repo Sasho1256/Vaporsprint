@@ -16,4 +16,10 @@ public class GameOver : MonoBehaviour
         Debug.Log("Collision");
         gameOver = true;
     }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Debug.Log("Collision");
+        gameOver = true;
+    }
 }

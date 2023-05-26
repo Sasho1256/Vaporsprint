@@ -23,37 +23,49 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         animator = GetComponent<Animator>();
 
-        if (rb.velocity.x == 0f)
+        if (!GameOver.gameOver)
         {
-            //if player is not moving set animation to idle
+            if (rb.velocity.x == 0f)
+            {
+                //if player is not moving set animation to idle
+                animator.SetBool("Movement", false);
+            }
+            else
+            {
+                //if player is moving set animation to walking
+                animator.SetBool("Movement", true);
+            }
+
+            //allow player to jump if they are touching the ground
+            if (Input.GetButtonDown("Jump") && isGrounded())
+            {
+                rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+                FindObjectOfType<AudioManager>().Play("Jump");
+            }
+
+            //if button is released and player is still moving upwards reduce velocity by 50%
+            if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
+            {
+                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
+            }
+
+            //flip character on direction change
+            Flip();
+        } else
+        {
             animator.SetBool("Movement", false);
+            rb.velocity = Vector2.zero;
         }
-        else
-        {
-            //if player is moving set animation to walking
-            animator.SetBool("Movement", true);
-        }
-           
-        //allow player to jump if they are touching the ground
-        if (Input.GetButtonDown("Jump") && isGrounded())
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-            FindObjectOfType<AudioManager>().Play("Jump");
-        }
-
-        //if button is released and player is still moving upwards reduce velocity by 50%
-        if (Input.GetButtonUp("Jump") && rb.velocity.y > 0f)
-        {
-            rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
-        }
-
-        //flip character on direction change
-        Flip();
+        
     }
 
     private void FixedUpdate()
-    {
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    {   
+        if (!GameOver.gameOver)
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        }
+        
     }
 
     private bool isGrounded()
@@ -62,8 +74,8 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private void Flip()
-    {   
-        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) 
+    {
+        if (isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
         {
             isFacingRight = !isFacingRight;
             Vector3 localScale = transform.localScale;
