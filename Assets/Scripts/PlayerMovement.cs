@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         animator = GetComponent<Animator>();
 
-        if (!GameOver.gameOver)
+        if (!GameOver.deathByObstacle)
         {
             if (rb.velocity.x == 0f)
             {
@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {   
-        if (!GameOver.gameOver)
+        if (!GameOver.deathByObstacle)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }

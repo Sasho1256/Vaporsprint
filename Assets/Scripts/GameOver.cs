@@ -5,10 +5,12 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     public static bool gameOver = false;
+    public static bool deathByObstacle;
 
     void Start()
     {
         gameOver = false;
+        deathByObstacle = false;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -21,5 +23,6 @@ public class GameOver : MonoBehaviour
     {
         Debug.Log("Collision");
         gameOver = true;
+        deathByObstacle = true;
     }
 }
