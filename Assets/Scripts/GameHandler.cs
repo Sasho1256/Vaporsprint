@@ -9,6 +9,7 @@ public class GameHandler : MonoBehaviour
 
     [HideInInspector]
     public AudioManager audioManager;
+    public UIManager uiManager;
 
     // Start is called before the first frame update
 
@@ -19,7 +20,8 @@ public class GameHandler : MonoBehaviour
     void Start()
     {
         Debug.Log("GameHandler Started");
-        if(audioManager.getAudioSource(themeSoundName) == null || !audioManager.getAudioSource(themeSoundName).isPlaying)
+        
+        if (audioManager.getAudioSource(themeSoundName) == null || !audioManager.getAudioSource(themeSoundName).isPlaying)
         {
             audioManager.StopAll();
             audioManager.Play(themeSoundName);
@@ -29,6 +31,9 @@ public class GameHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameOver.gameOver == true)
+        {
+            StartCoroutine(uiManager.TransitionToDeathScreen());
+        }
     }
 }

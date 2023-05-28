@@ -423,6 +423,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Level01
+  soundsToStop:
+  - GameOverTheme
 --- !u!1 &436453479
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +821,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   themeSoundName: GameOverTheme
+  audioManager: {fileID: 0}
+  menuScreen: {fileID: 0}
 --- !u!4 &1239159454
 Transform:
   m_ObjectHideFlags: 0
@@ -983,6 +987,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: MainMenu
+  soundsToStop:
+  - GameOverTheme
 --- !u!1 &2023392540
 GameObject:
   m_ObjectHideFlags: 0
