@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (IsInCameraView())
+        if (IsInCameraView() && !GameOver.gameOver)
             Move();
     }
 
