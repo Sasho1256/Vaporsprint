@@ -9,6 +9,7 @@ public class GameHandler : MonoBehaviour
 
     [HideInInspector]
     public AudioManager audioManager;
+    [HideInInspector]
     public UIManager uiManager;
 
     // Start is called before the first frame update

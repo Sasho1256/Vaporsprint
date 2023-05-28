@@ -775,6 +775,7 @@ GameObject:
   - component: {fileID: 491499059}
   - component: {fileID: 491499060}
   - component: {fileID: 491499061}
+  - component: {fileID: 491499062}
   m_Layer: 6
   m_Name: RightMapBound
   m_TagString: Untagged
@@ -875,6 +876,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &491499062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491499058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a056956775a5d1842912962778935da8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &510303920
 GameObject:
   m_ObjectHideFlags: 0
@@ -3038,9 +3051,10 @@ GameObject:
   - component: {fileID: 1139583184}
   - component: {fileID: 1139583186}
   - component: {fileID: 1139583187}
+  - component: {fileID: 1139583188}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3198,6 +3212,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1139583188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1139583181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5e57a9467c60914a80eefc48571973c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1153061941
 GameObject:
   m_ObjectHideFlags: 0
