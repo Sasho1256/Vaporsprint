@@ -6,26 +6,46 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public Image blackOutSquare;
-
     private AudioManager audioManager;
+    public GameObject menuScreen;
 
     private void Start()
     {
         audioManager = AudioManager.instance;
+        Time.timeScale = 1f; //make sure time is never stopped on start
     }
+
+    private void Awake()
+    {
+        menuScreen.SetActive(false); //disable pause menu on start
+    }
+
     void Update()
     {
-        if (GameOver.gameOver == true)
+
+        //open/close menu on esc
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
-            StartCoroutine(TransitionToDeathScreen());
+            if (menuScreen.activeInHierarchy)
+            {
+                //close menu
+                menuScreen.SetActive(false);
+                Time.timeScale = 1f; //resume time
+            }
+            else
+            {
+                //open menu
+                menuScreen.SetActive(true);
+                Time.timeScale = 0f; //stop time
+            }
         }
     }
 
-    IEnumerator TransitionToDeathScreen()
+    public IEnumerator TransitionToDeathScreen()
     {
         yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
-
-
+        audioManager.StopAll();
+        audioManager.Play("GameOverTheme");
         SceneManager.LoadScene("GameOver");
     }
 

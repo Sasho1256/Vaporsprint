@@ -8,6 +8,7 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         audioManager = AudioManager.instance;
+        audioManager.Play("MainMenuTheme");
     }
 
     public void Play()
