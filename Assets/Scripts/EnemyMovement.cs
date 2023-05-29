@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
     private bool IsInCameraView()
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        if (screenPoint.z >= 0 && screenPoint.x >= 0 && screenPoint.x <= 3 && screenPoint.y >= 0 && screenPoint.y <= 3)
+        if (screenPoint.z >= 0 && screenPoint.x >= -3 && screenPoint.x <= 3 && screenPoint.y >= -3 && screenPoint.y <= 3)
         {
             // The object is in the range of the camera + an overhead
             return true;
