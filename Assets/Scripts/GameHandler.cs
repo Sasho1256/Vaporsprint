@@ -11,6 +11,7 @@ public class GameHandler : MonoBehaviour
     public AudioManager audioManager;
     [HideInInspector]
     public UIManager uiManager;
+    private bool transitionDone = false;
 
     // Start is called before the first frame update
 
@@ -34,7 +35,11 @@ public class GameHandler : MonoBehaviour
     {
         if (GameOver.gameOver == true)
         {
-            StartCoroutine(uiManager.TransitionToDeathScreen());
+            if (!transitionDone)
+            {
+                transitionDone = true;
+                StartCoroutine(uiManager.TransitionToDeathScreen());
+            }
         }
     }
 }
