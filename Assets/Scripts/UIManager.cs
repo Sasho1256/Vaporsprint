@@ -8,7 +8,8 @@ public class UIManager : MonoBehaviour
     public Image blackOutSquare;
     private AudioManager audioManager;
     private string menu = "TransparentOptionsMenu";
-    private bool menuIsOpen = false;
+    [HideInInspector]
+    public static bool menuIsOpen = false;
 
     private void Start()
     {
@@ -46,6 +47,11 @@ public class UIManager : MonoBehaviour
         }
         Time.timeScale = 0f;
         menuIsOpen = true;
+        Scene pauseMenu = SceneManager.GetSceneByName(menu);
+        if (pauseMenu.IsValid() && pauseMenu.isLoaded)
+        {
+            InGameMenu.level = SceneManager.GetActiveScene().name;
+        }
     }
 
     public IEnumerator CloseInGameMenu()

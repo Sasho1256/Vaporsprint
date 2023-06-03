@@ -9,6 +9,9 @@ public class InGameMenu : MonoBehaviour
     //but then it gets weird with the menus... This circumvents having UIManager everywhere
     private AudioManager audioManager;
 
+    [HideInInspector]
+    public static string level;
+
     private void Awake()
     {
         audioManager = AudioManager.instance;
@@ -16,6 +19,11 @@ public class InGameMenu : MonoBehaviour
 
     public void Continue()
     {
+        Scene mainScene = SceneManager.GetSceneByName(level);
+        if (mainScene.IsValid() && mainScene.isLoaded)
+        {
+            UIManager.menuIsOpen = false;
+        }
         SceneManager.UnloadSceneAsync("TransparentOptionsMenu");
         Time.timeScale = 1.0f;
     }
