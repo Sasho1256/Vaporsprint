@@ -21,8 +21,6 @@ public class GameHandler : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("GameHandler Started");
-        
         if (audioManager.getAudioSource(themeSoundName) == null || !audioManager.getAudioSource(themeSoundName).isPlaying)
         {
             audioManager.StopAll();

@@ -84,7 +84,6 @@ public class AudioManager : MonoBehaviour
 
     public void MuteOrUnmute()
     {
-        Debug.LogError("help");
         if (!isMuted)
         {
             foreach (Sound s in sounds)

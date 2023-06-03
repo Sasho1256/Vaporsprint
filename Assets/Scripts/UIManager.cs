@@ -28,12 +28,10 @@ public class UIManager : MonoBehaviour
         {
             if (menuIsOpen) 
             {
-                Debug.Log("closing menu");
                 StartCoroutine(CloseInGameMenu());
             }
             else
             {
-                Debug.Log("opening menu");
                 StartCoroutine(OpenInGameMenu());
             }
         }
