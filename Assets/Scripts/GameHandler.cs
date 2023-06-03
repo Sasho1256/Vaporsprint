@@ -7,10 +7,10 @@ public class GameHandler : MonoBehaviour
 {
     public string themeSoundName;
 
+    public UIManager uiManager;
     [HideInInspector]
     public AudioManager audioManager;
     [HideInInspector]
-    public UIManager uiManager;
     private bool transitionDone = false;
 
     // Start is called before the first frame update
@@ -21,8 +21,6 @@ public class GameHandler : MonoBehaviour
     }
     void Start()
     {
-        Debug.Log("GameHandler Started");
-        
         if (audioManager.getAudioSource(themeSoundName) == null || !audioManager.getAudioSource(themeSoundName).isPlaying)
         {
             audioManager.StopAll();
@@ -34,7 +32,8 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         if (GameOver.gameOver == true)
-        {
+        {   
+
             if (!transitionDone)
             {
                 transitionDone = true;

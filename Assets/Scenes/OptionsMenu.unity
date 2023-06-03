@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 435510772307233124, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 435510772307233130, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -401,19 +405,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 210950924}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 310411633}
-        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
-        m_MethodName: MusicUpload
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &210950924
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,8 +653,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   themeSoundName: MainMenuTheme
-  audioManager: {fileID: 0}
   uiManager: {fileID: 0}
+  audioManager: {fileID: 0}
 --- !u!4 &491470648
 Transform:
   m_ObjectHideFlags: 0
@@ -894,7 +886,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: /
+  m_text: MUTE/ UNMUTE
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f32f29cba5ac7e144a36d09950cfce1e, type: 2}
   m_sharedMaterial: {fileID: 6544598313078340499, guid: f32f29cba5ac7e144a36d09950cfce1e, type: 2}
@@ -1090,7 +1082,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 649088430}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: LoadSceneWithConfirmationSound
+        m_MethodName: loadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1152,6 +1144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneName: MainMenu
   soundsToStop: []
+  loadingSound: Confirmation
 --- !u!1 &807230205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1427,7 +1420,7 @@ GameObject:
   - component: {fileID: 971885305}
   - component: {fileID: 971885304}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Mute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1527,7 +1520,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 971885307}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 310411633}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: Mute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &971885307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1726,7 +1731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: SELECT MUSIC
+  m_text: /
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f32f29cba5ac7e144a36d09950cfce1e, type: 2}
   m_sharedMaterial: {fileID: 6544598313078340499, guid: f32f29cba5ac7e144a36d09950cfce1e, type: 2}

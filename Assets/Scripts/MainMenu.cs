@@ -5,6 +5,7 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     private AudioManager audioManager;
+
     private void Awake()
     {
         audioManager = AudioManager.instance;
@@ -12,15 +13,10 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine(LoadScene());
+        StartCoroutine(LoadGame());
     }
 
-    public void Settings()
-    {
-        StartCoroutine(LoadSceneByName("OptionsMenu"));
-    }
-
-    private IEnumerator LoadScene()
+    private IEnumerator LoadGame()
     {
         audioManager.Play("Confirmation");
         while (audioManager.getAudioSource("Confirmation").isPlaying)
@@ -28,11 +24,13 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    private IEnumerator LoadSceneByName(string name)
+    public void QuitGame()
     {
-        audioManager.Play("Confirmation");
-        while (audioManager.getAudioSource("Confirmation").isPlaying)
-            yield return null;
-        SceneManager.LoadScene(name);
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit();
+#endif
+
     }
 }

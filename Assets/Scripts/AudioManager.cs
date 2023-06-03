@@ -4,12 +4,14 @@ using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 
+
 public class AudioManager : MonoBehaviour
 {
 
     public Sound[] sounds;
-
+    public Dictionary<string, float> defaultVolumes = new Dictionary<string, float>();
     public static AudioManager instance;
+    private bool isMuted = false;
 
     // Start is called before the first frame update
     void Awake() {
@@ -29,11 +31,11 @@ public class AudioManager : MonoBehaviour
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
-            
+
+            defaultVolumes.Add(s.name, s.volume);
         }
     }
 
-    // Update is called once per frame
     public void Play(string name) {
     Sound s = Array.Find(sounds, sound => sound.name == name);
     if (s == null) {
@@ -77,6 +79,31 @@ public class AudioManager : MonoBehaviour
             }
 
             s.source.Stop();
+        }
+    }
+
+    public void MuteOrUnmute()
+    {
+        if (!isMuted)
+        {
+            foreach (Sound s in sounds)
+            {
+                s.source.volume = 0f;
+            }
+            isMuted = true;
+            return;
+        } 
+        foreach (Sound s in sounds)
+        {
+            if (defaultVolumes.ContainsKey(s.name))
+            {
+                s.source.volume = defaultVolumes[s.name];
+            }
+            else
+            {
+                Debug.LogWarning("Sound not found");
+            }
+            isMuted = false;
         }
     }
 }
