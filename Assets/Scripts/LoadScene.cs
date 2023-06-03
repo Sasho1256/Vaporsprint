@@ -10,28 +10,27 @@ public class LoadScene : MonoBehaviour
     [SerializeField]
     private string sceneName;
     public string[] soundsToStop;
-    private AudioManager audioManager = AudioManager.instance;
+    private AudioManager audioManager;
+
+    public void Awake()
+    {
+       audioManager = AudioManager.instance;
+    }
 
     public void loadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName);
-        //audioManager = AudioManager.instance;
+        StartCoroutine(waitForSoundAndLoad(sceneName));
         foreach (string sound in soundsToStop)
         {
             audioManager.StopPlaying(sound);
         }
+
     }
 
-    public void LoadSceneWithConfirmationSound(string sceneName)
-    {
-        StartCoroutine(LoadSceneByName(sceneName));
-    }
-
-    private IEnumerator LoadSceneByName(string name)
-    {
-        audioManager.Play("Confirmation");
+    private IEnumerator waitForSoundAndLoad(string sceneName)
+    {   
         while (audioManager.getAudioSource("Confirmation").isPlaying)
             yield return null;
-        loadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }
