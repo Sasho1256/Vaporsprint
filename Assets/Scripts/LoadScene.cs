@@ -10,9 +10,10 @@ public class LoadScene : MonoBehaviour
     [SerializeField]
     private string sceneName;
     public string[] soundsToStop;
+    public string loadingSound = "Confirmation";
     private AudioManager audioManager;
 
-    public void Awake()
+    public void Start()
     {
        audioManager = AudioManager.instance;
     }
@@ -28,8 +29,9 @@ public class LoadScene : MonoBehaviour
     }
 
     private IEnumerator waitForSoundAndLoad(string sceneName)
-    {   
-        while (audioManager.getAudioSource("Confirmation").isPlaying)
+    {
+        audioManager.Play(loadingSound);
+        while (audioManager.getAudioSource(loadingSound).isPlaying)
             yield return null;
         SceneManager.LoadScene(sceneName);
     }
