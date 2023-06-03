@@ -7,10 +7,10 @@ public class GameHandler : MonoBehaviour
 {
     public string themeSoundName;
 
+    public UIManager uiManager;
     [HideInInspector]
     public AudioManager audioManager;
     [HideInInspector]
-    public UIManager uiManager;
     private bool transitionDone = false;
 
     // Start is called before the first frame update

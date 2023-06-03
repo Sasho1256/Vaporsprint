@@ -5,7 +5,7 @@ using System.Collections;
 public class MainMenu : MonoBehaviour
 {
     private AudioManager audioManager;
-    
+
     private void Awake()
     {
         audioManager = AudioManager.instance;
@@ -26,7 +26,11 @@ public class MainMenu : MonoBehaviour
 
     public void QuitGame()
     {
-        audioManager.Play("Confirmation");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
         Application.Quit();
+#endif
+
     }
 }
