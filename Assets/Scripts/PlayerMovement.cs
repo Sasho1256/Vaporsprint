@@ -27,13 +27,51 @@ public class PlayerMovement : MonoBehaviour
         {
             if (rb.velocity.x == 0f)
             {
-                //if player is not moving set animation to idle
-                animator.SetBool("Movement", false);
+                if (isGrounded())
+                {
+                    //if player is not moving set animation to idle
+                    animator.SetBool("Movement", false);
+                    animator.SetInteger("Jump", 0);
+                }
+                else
+                {
+                    // if player is still in the air set animation to jump
+                    if (animator.GetBool("Movement"))
+                    {
+                        animator.SetInteger("Jump", 3);
+                    }
+                    else
+                    {
+                        animator.SetInteger("Jump", 1);
+                    }
+                }
             }
-            else
+            if (rb.velocity.x != 0f)
             {
-                //if player is moving set animation to walking
-                animator.SetBool("Movement", true);
+                if (isGrounded())
+                {
+                    //if player is moving on the ground set animation to walking
+                    if (animator.GetInteger("Jump") == 1 || animator.GetInteger("Jump") == 3)
+                    {
+                        animator.SetInteger("Jump", 2);
+                    }
+                    else
+                    {
+                        animator.SetBool("Movement", true);
+                    }
+                }
+                else
+                {
+                    //if player is moving in the air set animation to jump
+                    if (animator.GetBool("Movement"))
+                    {
+                        animator.SetInteger("Jump", 3);
+                    }
+                    else
+                    {
+                        animator.SetInteger("Jump", 1);
+                    }
+                }
             }
 
             //allow player to jump if they are touching the ground
@@ -49,23 +87,25 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
             }
 
+
             //flip character on direction change
             Flip();
-        } else
+        }
+        else
         {
             animator.SetBool("Movement", false);
             rb.velocity = Vector2.zero;
         }
-        
+
     }
 
     private void FixedUpdate()
-    {   
+    {
         if (!GameOver.deathByObstacle)
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
         }
-        
+
     }
 
     private bool isGrounded()
