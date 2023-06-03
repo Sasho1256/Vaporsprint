@@ -11,9 +11,9 @@ public class OptionsMenu : MonoBehaviour
         audioManager = AudioManager.instance;
     }
 
-    public void MusicUpload()
-    {
-        
+    public void Mute()
+    {   
+        audioManager.MuteOrUnmute();
     }
 
     public void MainMenu()

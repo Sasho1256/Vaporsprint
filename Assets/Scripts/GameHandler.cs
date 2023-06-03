@@ -34,7 +34,8 @@ public class GameHandler : MonoBehaviour
     void Update()
     {
         if (GameOver.gameOver == true)
-        {
+        {   
+
             if (!transitionDone)
             {
                 transitionDone = true;

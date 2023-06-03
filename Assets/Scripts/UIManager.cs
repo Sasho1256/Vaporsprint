@@ -7,7 +7,8 @@ public class UIManager : MonoBehaviour
 {
     public Image blackOutSquare;
     private AudioManager audioManager;
-    public GameObject menuScreen;
+    private string menu = "TransparentOptionsMenu";
+    private bool menuIsOpen = false;
 
     private void Start()
     {
@@ -17,28 +18,47 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        menuScreen.SetActive(false); //disable pause menu on start
+        DontDestroyOnLoad(this.gameObject);
     }
 
     void Update()
     {
-
         //open/close menu on esc
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuScreen.activeInHierarchy)
+            if (menuIsOpen) 
             {
-                //close menu
-                menuScreen.SetActive(false);
-                Time.timeScale = 1f; //resume time
+                Debug.Log("closing menu");
+                StartCoroutine(CloseInGameMenu());
             }
             else
             {
-                //open menu
-                menuScreen.SetActive(true);
-                Time.timeScale = 0f; //stop time
+                Debug.Log("opening menu");
+                StartCoroutine(OpenInGameMenu());
             }
         }
+    }
+
+    public IEnumerator OpenInGameMenu()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(menu, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        Time.timeScale = 0f;
+        menuIsOpen = true;
+    }
+
+    public IEnumerator CloseInGameMenu()
+    {
+        AsyncOperation asyncUnLoad = SceneManager.UnloadSceneAsync(menu);
+        while (!asyncUnLoad.isDone)
+        {
+            yield return null;
+        }
+        Time.timeScale = 1f;
+        menuIsOpen = false;
     }
 
     public IEnumerator TransitionToDeathScreen()
@@ -47,6 +67,7 @@ public class UIManager : MonoBehaviour
         audioManager.StopAll();
         audioManager.Play("GameOverTheme");
         SceneManager.LoadScene("GameOver");
+        Destroy(this.gameObject);
     }
 
     IEnumerator FadeBlackOutSquareIn(float targetAlpha, float duration)
