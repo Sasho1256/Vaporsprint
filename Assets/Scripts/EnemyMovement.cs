@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -7,30 +9,64 @@ public class EnemyMovement : MonoBehaviour
     public float movementRange; // movement to the left on the x-axis 
     public float speed;
     public bool goRight; //is true if the object is headed to the right side
+    public int enemyID;  // 0 = Bomb; 1 = Diagonal Laser; 2 = Horizontal Laser
+
     private Vector3 startpos;
 
     void Start()
     {
         if (goRight)
-            startpos = transform.position + new Vector3(movementRange, 0, 0);
-        else 
+            if (enemyID == 0)
+                startpos = transform.position + new Vector3(movementRange, 0, 0);
+            else
+                startpos = transform.position + new Vector3(movementRange, movementRange, 0);
+        else
             startpos = transform.position;
     }
 
     void Update()
     {
-        if (IsInCameraView() && !GameOver.gameOver)
-            Move();
+        if (IsInCameraView() && !GameOver.gameOver && enemyID == 0)
+            MoveBomb();
+        else if (IsInCameraView() && !GameOver.gameOver && enemyID == 1)
+            MoveLaser();
     }
 
-    private void Move()
+    private void MoveLaser()
+    {
+        if (!goRight)
+        {
+            if (transform.position.x > startpos.x - movementRange)
+            {
+                transform.position += new Vector3(-1 * speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.position = startpos;
+            }
+        }
+        if (goRight)
+        {
+            if (transform.position.x < startpos.x)
+            {
+                transform.position += new Vector3(speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.position = startpos - new Vector3(movementRange, movementRange, 0);
+            }
+        }
+    }
+
+    private void MoveBomb()
     {
         if (!goRight)
         {
             if (transform.position.x > startpos.x - movementRange)
             {
                 transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
-            } else
+            }
+            else
             {
                 goRight = true;
             }
