@@ -671,6 +671,7 @@ MonoBehaviour:
   movementRange: 2
   speed: 3
   goRight: 0
+  enemyID: 0
 --- !u!212 &76444455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1498,6 +1499,7 @@ MonoBehaviour:
   movementRange: 8
   speed: 5
   goRight: 0
+  enemyID: 0
 --- !u!212 &156295837
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2206,6 +2208,7 @@ MonoBehaviour:
   movementRange: 1
   speed: 3
   goRight: 0
+  enemyID: 0
 --- !u!212 &228867483
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3028,6 +3031,7 @@ MonoBehaviour:
   movementRange: 9
   speed: 6
   goRight: 0
+  enemyID: 0
 --- !u!212 &298709790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3482,6 +3486,7 @@ MonoBehaviour:
   movementRange: 9
   speed: 7
   goRight: 0
+  enemyID: 0
 --- !u!212 &331350717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3988,6 +3993,7 @@ MonoBehaviour:
   movementRange: 10
   speed: 5
   goRight: 0
+  enemyID: 0
 --- !u!212 &388773195
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4524,6 +4530,7 @@ MonoBehaviour:
   movementRange: 2
   speed: 1
   goRight: 0
+  enemyID: 0
 --- !u!212 &445466063
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5050,6 +5057,7 @@ MonoBehaviour:
   movementRange: 2
   speed: 8
   goRight: 0
+  enemyID: 0
 --- !u!212 &477491500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -12043,6 +12051,7 @@ MonoBehaviour:
   movementRange: 15
   speed: 8
   goRight: 0
+  enemyID: 0
 --- !u!212 &1115397417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15904,7 +15913,7 @@ GameObject:
   - component: {fileID: 1550793044}
   - component: {fileID: 1550793043}
   m_Layer: 0
-  m_Name: Background (3)
+  m_Name: Background_City_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18387,6 +18396,7 @@ MonoBehaviour:
   movementRange: 3
   speed: 3
   goRight: 0
+  enemyID: 0
 --- !u!212 &1741293401
 SpriteRenderer:
   m_ObjectHideFlags: 0
