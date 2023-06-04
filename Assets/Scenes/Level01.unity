@@ -579,6 +579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 2
   speed: 3
+  goRight: 0
+  enemyID: 0
 --- !u!212 &76444455
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1405,6 +1407,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 8
   speed: 5
+  goRight: 0
+  enemyID: 0
 --- !u!212 &156295837
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2112,6 +2116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 1
   speed: 3
+  goRight: 0
+  enemyID: 0
 --- !u!212 &228867483
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2933,6 +2939,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 9
   speed: 6
+  goRight: 0
+  enemyID: 0
 --- !u!212 &298709790
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3386,6 +3394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 9
   speed: 7
+  goRight: 0
+  enemyID: 0
 --- !u!212 &331350717
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3495,6 +3505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 1
 --- !u!1 &367164083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3890,6 +3901,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 10
   speed: 5
+  goRight: 0
+  enemyID: 0
 --- !u!212 &388773195
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4425,6 +4438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 2
   speed: 1
+  goRight: 0
+  enemyID: 0
 --- !u!212 &445466063
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4950,6 +4965,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 2
   speed: 8
+  goRight: 0
+  enemyID: 0
 --- !u!212 &477491500
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11408,6 +11425,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 15
   speed: 8
+  goRight: 0
+  enemyID: 0
 --- !u!212 &1115397417
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13051,7 +13070,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1256380356}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0335, y: -8.58, z: 0}
+  m_LocalPosition: {x: 0.0335, y: -8.53, z: 0}
   m_LocalScale: {x: 1.0021, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -13071,6 +13090,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 2
 --- !u!212 &1256380359
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -15268,7 +15288,7 @@ GameObject:
   - component: {fileID: 1550793044}
   - component: {fileID: 1550793043}
   m_Layer: 0
-  m_Name: Background (3)
+  m_Name: Background_City_Top
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15282,9 +15302,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1550793041}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1.0714, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 2.8, z: 0}
+  m_LocalScale: {x: 1, y: 1.5714, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1291719265}
   m_RootOrder: 0
@@ -15302,6 +15322,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 0
 --- !u!212 &1550793044
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16805,12 +16826,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671916188}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 378189327b7ec2b46bf277143c58380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 0
 --- !u!61 &1671916190
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16845,8 +16867,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1671916188}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -15, z: 0.023210054}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 98.3, y: -15, z: 0.023210054}
+  m_LocalScale: {x: 4.8937497, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -17498,6 +17520,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementRange: 3
   speed: 3
+  goRight: 0
+  enemyID: 0
 --- !u!212 &1741293401
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -17961,7 +17985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792452928}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0000011920929, y: -19.69, z: 0}
+  m_LocalPosition: {x: -0.0000011920929, y: -19.640001, z: 0}
   m_LocalScale: {x: 0.67568576, y: 1.0714, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -17975,12 +17999,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792452928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 378189327b7ec2b46bf277143c58380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 3
 --- !u!114 &1792452931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17994,6 +18019,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
+  backgroundID: 3
 --- !u!212 &1792452932
 SpriteRenderer:
   m_ObjectHideFlags: 0
