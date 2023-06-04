@@ -74,7 +74,15 @@ public class UIManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    IEnumerator FadeBlackOutSquareIn(float targetAlpha, float duration)
+    public IEnumerator TransitionToCompleteScreen()
+    {
+        yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
+        SceneManager.LoadScene("Complete", LoadSceneMode.Additive);
+        Complete.level = SceneManager.GetActiveScene().name;
+        Time.timeScale = 0f;
+    }
+
+    public IEnumerator FadeBlackOutSquareIn(float targetAlpha, float duration)
     {
         float alpha = blackOutSquare.color.a;
 
