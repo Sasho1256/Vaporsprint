@@ -9851,13 +9851,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1792452928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 378189327b7ec2b46bf277143c58380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1139583183}
-  backgroundID: 0
+  backgroundID: 3
 --- !u!114 &1792452931
 MonoBehaviour:
   m_ObjectHideFlags: 0
