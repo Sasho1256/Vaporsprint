@@ -6,12 +6,15 @@ public class EnemyMovement : MonoBehaviour
 {
     public float movementRange; // movement to the left on the x-axis 
     public float speed;
+    public bool goRight; //is true if the object is headed to the right side
     private Vector3 startpos;
-    private bool goRight; //is true if the object is headed to the right side
 
     void Start()
     {
-        startpos = transform.position;
+        if (goRight)
+            startpos = transform.position + new Vector3(movementRange, 0, 0);
+        else 
+            startpos = transform.position;
     }
 
     void Update()
