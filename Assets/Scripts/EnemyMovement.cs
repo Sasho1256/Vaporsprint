@@ -16,7 +16,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         if (goRight)
-            if (enemyID == 0)
+            if (enemyID == 0 || enemyID == 2)
                 startpos = transform.position + new Vector3(movementRange, 0, 0);
             else
                 startpos = transform.position + new Vector3(movementRange, movementRange, 0);
@@ -26,25 +26,43 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (IsInCameraView() && !GameOver.gameOver && enemyID == 0)
-            MoveBomb();
-        else if (IsInCameraView() && !GameOver.gameOver && enemyID == 1)
-            MoveLaser();
+        if (IsInCameraView() && !GameOver.gameOver)
+            if (enemyID == 0)
+                MoveBomb();
+            else if (enemyID == 1)
+                MoveDiagonalLaser();
+            else if (enemyID == 2)
+                MoveHorizontalLaser();
     }
 
-    private void MoveLaser()
+    private void MoveHorizontalLaser()
     {
-        if (!goRight)
+        if (goRight)
+        {
+            if (transform.position.x < startpos.x)
+            {
+                transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+            else
+            {
+                transform.position = startpos - new Vector3(movementRange, 0, 0);
+            }
+        }
+        else
         {
             if (transform.position.x > startpos.x - movementRange)
             {
-                transform.position += new Vector3(-1 * speed * Time.deltaTime, speed * Time.deltaTime, 0);
+                transform.position += new Vector3(-1 * speed * Time.deltaTime, 0, 0);
             }
             else
             {
                 transform.position = startpos;
             }
         }
+    }
+
+    private void MoveDiagonalLaser()
+    {
         if (goRight)
         {
             if (transform.position.x < startpos.x)
@@ -56,21 +74,21 @@ public class EnemyMovement : MonoBehaviour
                 transform.position = startpos - new Vector3(movementRange, movementRange, 0);
             }
         }
+        else
+        {
+            if (transform.position.x > startpos.x - movementRange)
+            {
+                transform.position += new Vector3(-1 * speed * Time.deltaTime, speed * Time.deltaTime, 0);
+            }
+            else
+            {
+                transform.position = startpos;
+            }
+        }
     }
 
     private void MoveBomb()
     {
-        if (!goRight)
-        {
-            if (transform.position.x > startpos.x - movementRange)
-            {
-                transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
-            }
-            else
-            {
-                goRight = true;
-            }
-        }
         if (goRight)
         {
             if (transform.position.x < startpos.x)
@@ -80,6 +98,17 @@ public class EnemyMovement : MonoBehaviour
             else
             {
                 goRight = false;
+            }
+        }
+        else
+        {
+            if (transform.position.x > startpos.x - movementRange)
+            {
+                transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
+            }
+            else
+            {
+                goRight = true;
             }
         }
     }
