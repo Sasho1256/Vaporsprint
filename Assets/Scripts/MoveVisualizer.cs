@@ -16,7 +16,7 @@ public class MoveVisualizer : MonoBehaviour
         if(player.position.y > -3){
             if (backgroundID == 0)
             {
-                transform.position = new Vector3(player.transform.position.x, (player.transform.position.y+5.86f* 1.5f) /1.5f, transform.position.z);
+                transform.position = new Vector3(player.transform.position.x, (player.transform.position.y+7.81f* 1.5f) /1.5f, transform.position.z);
             }
             if (backgroundID == 1)
             {
