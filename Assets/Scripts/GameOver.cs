@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
     public static bool gameOver = false;
     public static bool deathByObstacle;
+    public static string curScene;
     [HideInInspector]
     public AudioManager audioManager;
 
@@ -19,13 +21,14 @@ public class GameOver : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collision");
+        curScene = SceneManager.GetActiveScene().name;
         gameOver = true;
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        //audioManager.Play("Death");
         Debug.Log("Collision");
+        curScene = SceneManager.GetActiveScene().name;
         gameOver = true;
         deathByObstacle = true;
     }
