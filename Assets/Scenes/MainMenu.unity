@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 210950927}
   - component: {fileID: 210950928}
   - component: {fileID: 210950926}
+  - component: {fileID: 210950929}
   m_Layer: 5
   m_Name: Start button
   m_TagString: Untagged
@@ -345,16 +346,16 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 310411633}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Play
-        m_Mode: 1
+      - m_Target: {fileID: 210950929}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: loadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: LvlSelect
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &210950924
@@ -521,6 +522,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &210950929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 210950921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad2518b61912a4e4ea0edc1d3c24262c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: LvlSelect
+  soundsToStop: []
+  loadingSound: Confirmation
 --- !u!1 &310411631
 GameObject:
   m_ObjectHideFlags: 0
