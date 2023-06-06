@@ -21,16 +21,17 @@ public class MainMenu : MonoBehaviour
         audioManager.Play("Confirmation");
         while (audioManager.getAudioSource("Confirmation").isPlaying)
             yield return null;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("LvlSelect");
     }
 
     public void QuitGame()
     {
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#else
-        Application.Quit();
-#endif
+        #if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
 
     }
+
 }

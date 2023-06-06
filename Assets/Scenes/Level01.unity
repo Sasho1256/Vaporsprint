@@ -8075,6 +8075,22 @@ PrefabInstance:
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: ceb51c85ae3526245a6c7bfc66b87ac0, type: 3}
+    - target: {fileID: 435510772307233131, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 435510772307233131, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: sounds.Array.data[2].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 435510772307233131, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 435510772307233131, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
+      propertyPath: sounds.Array.data[4].volume
+      value: 0.4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 291e3fa866d828a42b7953bc32673919, type: 3}
 --- !u!1 &755721659
@@ -12243,7 +12259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1139583181}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 197.2, y: 2.31, z: 0.08596239}
+  m_LocalPosition: {x: -7.68, y: -3.04, z: 0.08596239}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
