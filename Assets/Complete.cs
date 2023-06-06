@@ -12,7 +12,6 @@ public class Complete : MonoBehaviour
 
     void NextLevel()
     {
-        //load next level - note: need to change upper limit if level n is increased beyond 3
-
+        
     }
 }
