@@ -78,7 +78,20 @@ public class UIManager : MonoBehaviour
     {
         yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
         SceneManager.LoadScene("Complete", LoadSceneMode.Additive);
-        Complete.level = SceneManager.GetActiveScene().name;
+           
+        //getting the scene name at next buildindex
+        int nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneBuildIndex);
+        string nextLevel = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
+
+
+        if (nextLevel.Contains("Level"))
+        {
+            Complete.nextLevel = nextLevel;
+        } else
+        {
+            Complete.nextLevel = null;
+        }
         Time.timeScale = 0f;
     }
 
