@@ -74,7 +74,28 @@ public class UIManager : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    IEnumerator FadeBlackOutSquareIn(float targetAlpha, float duration)
+    public IEnumerator TransitionToCompleteScreen()
+    {
+        yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
+        SceneManager.LoadScene("Complete", LoadSceneMode.Additive);
+           
+        //getting the scene name at next buildindex
+        int nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        string nextScenePath = SceneUtility.GetScenePathByBuildIndex(nextSceneBuildIndex);
+        string nextLevel = System.IO.Path.GetFileNameWithoutExtension(nextScenePath);
+
+
+        if (nextLevel.Contains("Level"))
+        {
+            Complete.nextLevel = nextLevel;
+        } else
+        {
+            Complete.nextLevel = null;
+        }
+        Time.timeScale = 0f;
+    }
+
+    public IEnumerator FadeBlackOutSquareIn(float targetAlpha, float duration)
     {
         float alpha = blackOutSquare.color.a;
 
