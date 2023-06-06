@@ -60,7 +60,7 @@ MonoBehaviour:
     loop: 0
   - name: Theme
     clip: {fileID: 8300000, guid: afa18527d9fc4d745b544086e628e248, type: 3}
-    volume: 0.043
+    volume: 0.004
     pitch: 1
     source: {fileID: 0}
     loop: 1
@@ -76,6 +76,12 @@ MonoBehaviour:
     pitch: 1
     source: {fileID: 0}
     loop: 1
+  - name: Death
+    clip: {fileID: 8300000, guid: 5369401d5d5e7b148b459fcd7bfec79a, type: 3}
+    volume: 0.136
+    pitch: 1
+    source: {fileID: 0}
+    loop: 0
 --- !u!114 &3029424550021756195
 MonoBehaviour:
   m_ObjectHideFlags: 0

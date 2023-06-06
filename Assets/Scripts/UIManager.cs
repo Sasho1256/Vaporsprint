@@ -67,6 +67,7 @@ public class UIManager : MonoBehaviour
 
     public IEnumerator TransitionToDeathScreen()
     {
+        audioManager.Play("Death");
         yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
         audioManager.StopAll();
         audioManager.Play("GameOverTheme");
