@@ -28,6 +28,11 @@ public class LoadScene : MonoBehaviour
 
     }
 
+    public void reLoadScene()
+    {
+        loadScene(GameOver.curScene);
+    }
+
     private IEnumerator waitForSoundAndLoad(string sceneName)
     {
         audioManager.Play(loadingSound);

@@ -10,9 +10,20 @@ public class GameScore : MonoBehaviour
     {
         if(GameOver.gameOver)
         {
+            float tmp = 0;
             float distanceLeftToPlayer = Mathf.Abs(GameObject.Find("LeftMapBound").transform.position.x) + GameObject.Find("Player").transform.position.x;
             float totalLevelDistance = GameObject.Find("RightMapBound").transform.position.x - GameObject.Find("LeftMapBound").transform.position.x;
-            gameScore = (distanceLeftToPlayer / totalLevelDistance) * 100;
+            tmp = (distanceLeftToPlayer / totalLevelDistance) * 100;
+            if(tmp > 100)
+            {
+                gameScore = 99;
+            } else if(tmp < 0)
+            {
+                gameScore = 0;
+            } else
+            {
+                gameScore = tmp;
+            }
         }
     }
 }
