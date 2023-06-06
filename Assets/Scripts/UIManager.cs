@@ -81,7 +81,7 @@ public class UIManager : MonoBehaviour
     public IEnumerator TransitionToCompleteScreen()
     {
         yield return StartCoroutine(FadeBlackOutSquareIn(1f, 0.5f));
-        SceneManager.LoadScene("Complete", LoadSceneMode.Additive);
+        SceneManager.LoadScene("LvlComplete", LoadSceneMode.Additive);
            
         //getting the scene name at next buildindex
         int nextSceneBuildIndex = SceneManager.GetActiveScene().buildIndex + 1;
