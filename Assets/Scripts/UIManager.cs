@@ -19,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        
     }
 
     void Update()

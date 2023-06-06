@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,7 +23,12 @@ public class LoadScene : MonoBehaviour
         {
             audioManager.StopPlaying(sound);
         }
+    }
 
+    public void loadSceneMenu(string sceneName)
+    {
+        loadScene(sceneName);
+        UIManager.menuIsOpen = false;
     }
 
     public void reLoadScene()
