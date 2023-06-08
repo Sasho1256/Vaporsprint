@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        if (IsInCameraView() && !GameOver.gameOver)
+        if (/*IsInCameraView() && */!GameOver.gameOver)
             if (enemyID == 0)
                 MoveBomb();
             else if (enemyID == 1)
@@ -113,7 +113,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private bool IsInCameraView()
+    /*private bool IsInCameraView()
     {
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
         if (screenPoint.z >= 0 && screenPoint.x >= -3 && screenPoint.x <= 3 && screenPoint.y >= -3 && screenPoint.y <= 3)
@@ -125,5 +125,5 @@ public class EnemyMovement : MonoBehaviour
         {
             return false;
         }
-    }
+    }*/
 }
