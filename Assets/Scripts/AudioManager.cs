@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     public static AudioManager instance;
     private bool isMuted = false;
 
-    // Start is called before the first frame update
+    //saves the current instance to a variable, so that it doesn't need to be initialized every time its needed
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -24,6 +24,7 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        //sets the defined variables from Sound.cs to the variables from the associated AudioSourcec
         foreach (Sound s in sounds) {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -36,6 +37,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //finds the sound with the name "name" in the Array and plays the associated AudioSource
     public void Play(string name) {
     Sound s = Array.Find(sounds, sound => sound.name == name);
     if (s == null) {
@@ -45,6 +47,7 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    //returns the associated AudioSource from the sound with the name "sound"
     public AudioSource getAudioSource(string sound)
     {
         Sound s = Array.Find(sounds, item => item.name == sound);
@@ -56,6 +59,7 @@ public class AudioManager : MonoBehaviour
         return s.source;
     }
 
+    //stops playing the sound with the name "sound"
     public void StopPlaying(string sound)
     {
         Sound s = Array.Find(sounds, item => item.name == sound);
@@ -68,6 +72,7 @@ public class AudioManager : MonoBehaviour
         s.source.Stop();
     }
 
+    //stops all sounds in the Array
     public void StopAll()
     {
         foreach(Sound s in sounds)
@@ -82,6 +87,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //depending on whether the sound is currently muted or not it unmutes/mutes it
     public void MuteOrUnmute()
     {
         if (!isMuted)
