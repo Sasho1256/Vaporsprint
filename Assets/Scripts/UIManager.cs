@@ -17,11 +17,6 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 1f; //make sure time is never stopped on start
     }
 
-    private void Awake()
-    {
-        
-    }
-
     void Update()
     {
         //open/close menu on esc
