@@ -14,21 +14,23 @@ public class GameOver : MonoBehaviour
     void Start()
     {
         audioManager = AudioManager.instance;
-        gameOver = false;
+        gameOver = false; //make sure gameOver state is reset on retry
         deathByObstacle = false;
     }
 
+    //on death by falling
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Collision");
-        curScene = SceneManager.GetActiveScene().name;
+        curScene = SceneManager.GetActiveScene().name; //store current scene for "retry" button to load again
         gameOver = true;
     }
 
+    //on death by enemy/obstacle
     void OnCollisionEnter2D(Collision2D other)
     {
         Debug.Log("Collision");
-        curScene = SceneManager.GetActiveScene().name;
+        curScene = SceneManager.GetActiveScene().name;  //store current scene for "retry" button to load again
         gameOver = true;
         deathByObstacle = true;
     }
