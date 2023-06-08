@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float movementRange; // movement to the left on the x-axis 
-    public float speed;
+    public float speed; //speed of moving object
     public bool goRight; //is true if the object is headed to the right side
     public int enemyID;  // 0 = Bomb; 1 = Diagonal Laser; 2 = Horizontal Laser
 
@@ -24,9 +24,9 @@ public class EnemyMovement : MonoBehaviour
             startpos = transform.position;
     }
 
-    void Update()
+    void Update() //handles the movement of all enemies depending on their IDs (is called once per frame)
     {
-        if (/*IsInCameraView() && */!GameOver.gameOver)
+        if (!GameOver.gameOver)
             if (enemyID == 0)
                 MoveBomb();
             else if (enemyID == 1)
@@ -112,18 +112,4 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
-
-    /*private bool IsInCameraView()
-    {
-        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        if (screenPoint.z >= 0 && screenPoint.x >= -3 && screenPoint.x <= 3 && screenPoint.y >= -3 && screenPoint.y <= 3)
-        {
-            // The object is in the range of the camera + an overhead
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }*/
 }

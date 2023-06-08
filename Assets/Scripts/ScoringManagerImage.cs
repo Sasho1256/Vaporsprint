@@ -17,10 +17,10 @@ public class ScoringManagerImage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float score = GameScore.gameScore;
-        score = Mathf.FloorToInt(score);
+        float score = GameScore.gameScore; 
+        score = Mathf.FloorToInt(score); //gets the score in %
 
-        if(GameOver.gameOver)
+        if(GameOver.gameOver) //chooses the image with a certain amount of golden stars depending on the score
         {
 
             if (score < 25)
