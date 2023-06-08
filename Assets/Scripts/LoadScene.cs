@@ -8,7 +8,7 @@ public class LoadScene : MonoBehaviour
     [SerializeField]
     private string sceneName;
     public string[] soundsToStop;
-    public string loadingSound = "Confirmation";
+    public string loadingSound = "Confirmation"; //sound to play on button press / scene loading
     private AudioManager audioManager;
 
     public void Start()
@@ -16,7 +16,8 @@ public class LoadScene : MonoBehaviour
        audioManager = AudioManager.instance;
     }
 
-    public void loadScene(string sceneName)
+    //play loadingSound, afterwards stop specified sounds in scene and load new scene
+    public void loadScene(string sceneName) 
     {
         StartCoroutine(waitForSoundAndLoad(sceneName));
         foreach (string sound in soundsToStop)
@@ -25,6 +26,7 @@ public class LoadScene : MonoBehaviour
         }
     }
 
+    //used for "continue" button in pause menu. Will unload the menu without "esc" press and updates state
     public void loadSceneMenu(string sceneName)
     {
         loadScene(sceneName);
@@ -36,6 +38,7 @@ public class LoadScene : MonoBehaviour
         loadScene(GameOver.curScene);
     }
 
+    //plays loadingsound and loads a scene afterwards
     private IEnumerator waitForSoundAndLoad(string sceneName)
     {
         audioManager.Play(loadingSound);
