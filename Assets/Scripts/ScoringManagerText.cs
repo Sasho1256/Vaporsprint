@@ -10,17 +10,17 @@ public class ScoringManagerText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        inputField = GetComponent<TextMeshProUGUI>();
+        inputField = GetComponent<TextMeshProUGUI>(); //text-field to adapt
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() //sets the score in the text-field of the gameOver screen
     {
         float score = GameScore.gameScore;
         score = Mathf.FloorToInt(score);
         if (GameOver.gameOver)
         {
-            inputField.text = score.ToString() + " Percent";
+            inputField.text = score.ToString() + " Percent"; 
         }
     }
 }
