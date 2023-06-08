@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Update() //handles the movement of all enemies depending on their IDs (is called once per frame)
     {
-        if (/*IsInCameraView() && */!GameOver.gameOver)
+        if (!GameOver.gameOver)
             if (enemyID == 0)
                 MoveBomb();
             else if (enemyID == 1)
@@ -112,18 +112,4 @@ public class EnemyMovement : MonoBehaviour
             }
         }
     }
-
-    /*private bool IsInCameraView()
-    {
-        Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
-        if (screenPoint.z >= 0 && screenPoint.x >= -3 && screenPoint.x <= 3 && screenPoint.y >= -3 && screenPoint.y <= 3)
-        {
-            // The object is in the range of the camera + an overhead
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }*/
 }
