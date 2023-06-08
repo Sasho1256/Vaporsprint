@@ -13,23 +13,26 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        StartCoroutine(LoadGame());
+        StartCoroutine(LoadSelector()); 
     }
 
-    private IEnumerator LoadGame()
+    //plays button press sound and then loads the level selector
+    private IEnumerator LoadSelector()
     {
         audioManager.Play("Confirmation");
         while (audioManager.getAudioSource("Confirmation").isPlaying)
             yield return null;
+        //LoadScene executes once "Confirmation" sound has finished playing
         SceneManager.LoadScene("LvlSelect");
     }
 
+    //closes the game on press of the "Quit" button
     public void QuitGame()
     {
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #else
-            Application.Quit();
+            Application.Quit(); 
         #endif
 
     }
