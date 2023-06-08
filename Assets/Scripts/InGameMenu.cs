@@ -5,12 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class InGameMenu : MonoBehaviour
 {   
-    //sorry for this extra script, could be made cleaner by also not destroying UImanager on load
-    //but then it gets weird with the menus... This circumvents having UIManager everywhere
     private AudioManager audioManager;
 
     [HideInInspector]
-    public static string level;
+    public static string level; //current level passed by UIManager
 
     private void Awake()
     {
@@ -20,14 +18,15 @@ public class InGameMenu : MonoBehaviour
     public void Continue()
     {
         Scene mainScene = SceneManager.GetSceneByName(level);
-        if (mainScene.IsValid() && mainScene.isLoaded)
+        if (mainScene.IsValid() && mainScene.isLoaded) //if the level is still valid and loaded allow closing of pause menu
         {
             UIManager.menuIsOpen = false;
+            SceneManager.UnloadSceneAsync("TransparentOptionsMenu"); //unload the pause menu
+            Time.timeScale = 1.0f;
         }
-        SceneManager.UnloadSceneAsync("TransparentOptionsMenu");
-        Time.timeScale = 1.0f;
     }
 
+    //method for the mute button
     public void Mute()
     {
         audioManager.MuteOrUnmute();
