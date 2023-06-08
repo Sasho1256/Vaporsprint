@@ -9,9 +9,9 @@ public class Complete : MonoBehaviour
 {
     [HideInInspector]
     public UIManager uiManager;
-    public static string nextLevel; //level passed by main 
+    public static string nextLevel; //level passed by main / received from UIManager
 
-    //buttons to modify
+    //buttons in scene
     public Button menuBtn;
     public Button nextBtn;
 
@@ -25,12 +25,12 @@ public class Complete : MonoBehaviour
     {
         Debug.Log(nextLevel);
         audioManager = AudioManager.instance;
-        hasNextLevel = nextLevel != null;
+        hasNextLevel = nextLevel != null; //if no next level was found hasNextLevel = false
         //if there is no next level, disable button
         if (!hasNextLevel)
         {
             Debug.Log("no next lvl");
-            nextBtn.transform.SetParent(null);
+            nextBtn.transform.SetParent(null); //removes button from scene
 
             //Set the x position to 0
             Vector3 newPosition = new Vector3(0f, menuBtn.transform.localPosition.y, menuBtn.transform.localPosition.z);
@@ -39,6 +39,7 @@ public class Complete : MonoBehaviour
         }
     }
 
+    //script for button loading the next level
     public void NextLevel()
     {
             audioManager.StopAll();
